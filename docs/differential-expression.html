@@ -25,6 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -366,7 +368,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/xmz5176May/bootcamp2">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -492,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxmz5176Maybootcamp2treedd9149d3ff43137f316e622af3799857081a4ee7targetblankdd9149da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xmz5176May/bootcamp2/tree/dd9149d3ff43137f316e622af3799857081a4ee7" target="_blank">dd9149d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomxmz5176Maybootcamp2tree8cc7df6251c4a6b3d6c9fc14f72018123525361ctargetblank8cc7df6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/xmz5176May/bootcamp2/tree/8cc7df6251c4a6b3d6c9fc14f72018123525361c" target="_blank">8cc7df6</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomxmz5176Maybootcamp2treedd9149d3ff43137f316e622af3799857081a4ee7targetblankdd9149da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomxmz5176Maybootcamp2tree8cc7df6251c4a6b3d6c9fc14f72018123525361ctargetblank8cc7df6a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/xmz5176May/bootcamp2/tree/dd9149d3ff43137f316e622af3799857081a4ee7" target="_blank">dd9149d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/xmz5176May/bootcamp2/tree/8cc7df6251c4a6b3d6c9fc14f72018123525361c" target="_blank">8cc7df6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -553,6 +561,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/xmz5176May/bootcamp2/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/differential-expression.html" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -696,6 +721,43 @@ YAL062W     YAL062W   I 31567 32940      +   1374
 <p>Plot density of expression values for each sample.</p>
 <pre class="r"><code>plotDensities(log2cpm, group = group, main = &quot;Raw&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/plotDensities-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotDensities-1">
+Past versions of plotDensities-1.png
+</button>
+</p>
+<div id="fig-plotDensities-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/plotDensities-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <!-- Ex 2: Filter -->
 <p>Only keep features which have at least 10 counts in at least 4 wildtype or 4 mutant samples.</p>
 <pre class="r"><code>keep &lt;- filterByExpr(x, group = group)
@@ -706,21 +768,206 @@ sum(keep)</code></pre>
 <pre class="r"><code>log2cpm &lt;- cpm(x, log = TRUE)
 plotDensities(log2cpm, group = group, main = &quot;Filtered&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/plotDensitiesFiltered-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotDensitiesFiltered-1">
+Past versions of plotDensitiesFiltered-1.png
+</button>
+</p>
+<div id="fig-plotDensitiesFiltered-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/plotDensitiesFiltered-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <!-- Ex 3: Normalize -->
 <p>Normalize the samples, re-calculate log2cpm, and re-plot densities.</p>
 <pre class="r"><code>x &lt;- calcNormFactors(x)
 log2cpm &lt;- cpm(x, log = TRUE)
 plotDensities(log2cpm, group = group, main = &quot;Normalized&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/normalize-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-normalize-1">
+Past versions of normalize-1.png
+</button>
+</p>
+<div id="fig-normalize-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/normalize-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="process-samples" class="section level2">
 <h2>Process samples</h2>
 <pre class="r"><code>barplot(log2cpm[&quot;ERCC-00130&quot;,])</code></pre>
 <p><img src="figure/differential-expression.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-1">
+Past versions of unnamed-chunk-1-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/unnamed-chunk-1-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>barplot(log2cpm[&quot;ERCC-00165&quot;,])</code></pre>
 <p><img src="figure/differential-expression.Rmd/unnamed-chunk-1-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-2">
+Past versions of unnamed-chunk-1-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/unnamed-chunk-1-2.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>plotMDS(log2cpm,gene.selection = &quot;common&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/unnamed-chunk-1-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-1-3">
+Past versions of unnamed-chunk-1-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-1-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/unnamed-chunk-1-3.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>x &lt;- x[,colnames(x)!=&quot;mutant.06&quot;]
 dim(x)</code></pre>
 <pre><code>[1] 4904   11</code></pre>
@@ -762,10 +1009,84 @@ YAL059W YAL059W   I 36509 37147      +    639
 <p>Confirm that the mutant samples are null for SNF2.</p>
 <pre class="r"><code>barplot(log2cpm[&quot;YOR290C&quot;, ], main = &quot;SNF2&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/snf2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-snf2-1">
+Past versions of snf2-1.png
+</button>
+</p>
+<div id="fig-snf2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/snf2-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <!-- Ex 2: PCA -->
 <p>Perform PCA.</p>
 <pre class="r"><code>plotMDS(log2cpm, gene.selection = &quot;common&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/pca-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-pca-1">
+Past versions of pca-1.png
+</button>
+</p>
+<div id="fig-pca-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/pca-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Remove outlier sample.</p>
 <pre class="r"><code>x &lt;- x[, colnames(x) != &quot;mutant.06&quot;]
 dim(x)</code></pre>
@@ -775,6 +1096,43 @@ dim(x)</code></pre>
 <pre class="r"><code>log2cpm &lt;- cpm(x, log = TRUE)
 plotMDS(log2cpm, gene.selection = &quot;common&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/pca2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-pca2-1">
+Past versions of pca2-1.png
+</button>
+</p>
+<div id="fig-pca2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/pca2-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>log2cpm</code></pre>
 <pre><code>           mutant.01  mutant.02  mutant.03  mutant.04  mutant.05 wildtype.01
 YAL063C     4.730309  5.0490559  4.9578202  4.6999241  4.9330217    4.869132
@@ -10611,6 +10969,43 @@ attr(,&quot;contrasts&quot;)$`x$samples$group`
 [1] &quot;contr.treatment&quot;</code></pre>
 <pre class="r"><code>v &lt;- voom(x, design, plot = TRUE)</code></pre>
 <p><img src="figure/differential-expression.Rmd/voom-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-voom-1">
+Past versions of voom-1.png
+</button>
+</p>
+<div id="fig-voom-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/voom-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>fit &lt;- lmFit(v, design)
 fit &lt;- eBayes(fit)
 topTable(fit,coef=2)</code></pre>
@@ -10673,17 +11068,165 @@ YOR273C 1.124107e-13 5.011473e-11 21.69191</code></pre>
 <p>Create a barplot of the top DE feature:</p>
 <pre class="r"><code>barplot(log2cpm[&quot;YGR234W&quot;, ], las = 2, cex.names = 0.75)</code></pre>
 <p><img src="figure/differential-expression.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/unnamed-chunk-4-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <!-- Ex 2: assessment -->
 <p>Visualize p-value distribution.</p>
 <pre class="r"><code>hist(fit$p.value[, 2], main = &quot;p-value distribution&quot;)</code></pre>
 <p><img src="figure/differential-expression.Rmd/p-values-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-p-values-1">
+Past versions of p-values-1.png
+</button>
+</p>
+<div id="fig-p-values-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/p-values-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Visualize residual variation versus magnitude of expression.</p>
 <pre class="r"><code>plotSA(fit)</code></pre>
 <p><img src="figure/differential-expression.Rmd/residuals-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-residuals-1">
+Past versions of residuals-1.png
+</button>
+</p>
+<div id="fig-residuals-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/residuals-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <!-- Ex 3: volcano -->
 <p>Create a volcano plot.</p>
 <pre class="r"><code>volcanoplot(fit, coef = 2, highlight = 5, names = fit$genes$Geneid)</code></pre>
 <p><img src="figure/differential-expression.Rmd/volcano-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-volcano-1">
+Past versions of volcano-1.png
+</button>
+</p>
+<div id="fig-volcano-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/xmz5176May/bootcamp2/blob/c739e4d93b8512a4c1f39d1b8fc3fbd261f11223/docs/figure/differential-expression.Rmd/volcano-1.png" target="_blank">c739e4d</a>
+</td>
+<td>
+xmz5176May
+</td>
+<td>
+2020-08-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
