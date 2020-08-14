@@ -6,7 +6,7 @@ editor_options:
 ---
 
 ## Setup
-
+[link]https://portal.aci.ics.psu.edu/rnode/comp-lc-0094.acib.production.int.aci.ics.psu.edu/8605/?view=rmarkdown
 Load packages.
 
 ```{r packages}
@@ -17,10 +17,11 @@ library(edgeR)
 Import counts.
 
 ```{r import}
-rawData <- read.table("~/scratch/bootcamp/data/counts.txt",
+rawData <- read.table("data/counts.txt",
                       header = TRUE,
                       stringsAsFactors = FALSE)
 dim(rawData)
+head(rawData)
 genes <- subset(rawData, select = Geneid:Length)
 counts <- rawData[, 7:18]
 rownames(counts) <- genes$Geneid
@@ -31,6 +32,7 @@ x <- DGEList(counts = counts,
              group = group,
              genes = genes)
 class(x)
+x
 ```
 
 ## Process features
@@ -40,13 +42,13 @@ class(x)
 Calculate log2 counts per million (log2cpm).
 
 ```{r cpm}
-log2cpm <- ___(x, log = ___)
+log2cpm <- cpm(x, log = TRUE)
 ```
 
 Plot density of expression values for each sample.
 
 ```{r plotDensities}
-___(___, group = group, main = "Raw")
+plotDensities(log2cpm, group = group, main = "Raw")
 ```
 
 <!-- Ex 2: Filter -->
@@ -55,16 +57,16 @@ Only keep features which have at least 10 counts in at least 4 wildtype or 4
 mutant samples.
 
 ```{r keep}
-keep <- ___(x, group = group)
+keep <- filterByExpr(x, group = group)
 sum(keep)
-x <- x[___, ]
+x <- x[keep, ]
 ```
 
 Re-calculate log2cpm and re-plot densities.
 
 ```{r plotDensitiesFiltered}
-log2cpm <- ___(x, log = ___)
-___(___, group = group, main = "Filtered")
+log2cpm <- cpm(x, log = TRUE)
+plotDensities(log2cpm, group = group, main = "Filtered")
 ```
 
 <!-- Ex 3: Normalize -->
@@ -72,19 +74,27 @@ ___(___, group = group, main = "Filtered")
 Normalize the samples, re-calculate log2cpm, and re-plot densities.
 
 ```{r normalize}
-x <- ___(x)
-log2cpm <- ___(x, log = ___)
-___(___, group = group, main = "Normalized")
+x <- calcNormFactors(x)
+log2cpm <- cpm(x, log = TRUE)
+plotDensities(log2cpm, group = group, main = "Normalized")
 ```
 
 ## Process samples
+```{r}
+barplot(log2cpm["ERCC-00130",])
+barplot(log2cpm["ERCC-00165",])
+plotMDS(log2cpm,gene.selection = "common")
+x <- x[,colnames(x)!="mutant.06"]
+dim(x)
+x
+```
 
 <!-- Ex 1: SNF2 -->
 
 Confirm that the mutant samples are null for SNF2.
 
 ```{r snf2}
-___(log2cpm["___", ], main = "SNF2")
+barplot(log2cpm["YOR290C", ], main = "SNF2")
 ```
 
 <!-- Ex 2: PCA -->
@@ -92,13 +102,13 @@ ___(log2cpm["___", ], main = "SNF2")
 Perform PCA.
 
 ```{r pca}
-___(___, gene.selection = "common")
+plotMDS(log2cpm, gene.selection = "common")
 ```
 
 Remove outlier sample.
 
 ```{r}
-x <- x[, colnames(x) != "___"]
+x <- x[, colnames(x) != "mutant.06"]
 dim(x)
 ```
 
@@ -107,8 +117,9 @@ dim(x)
 Re-calculate log2cpm and re-perform PCA.
 
 ```{r pca2}
-log2cpm <- ___(x, log = ___)
-___(___, gene.selection = "common")
+log2cpm <- cpm(x, log = TRUE)
+plotMDS(log2cpm, gene.selection = "common")
+log2cpm
 ```
 
 ## Model
@@ -117,6 +128,7 @@ $$ Y = \beta_{0} + \beta_{mutant} + \epsilon $$
 
 ```{r design}
 design <- model.matrix(~x$samples$group)
+design
 ```
 
 ```{r voom}
@@ -126,6 +138,7 @@ v <- voom(x, design, plot = TRUE)
 ```{r fit}
 fit <- lmFit(v, design)
 fit <- eBayes(fit)
+topTable(fit,coef=2)
 ```
 
 ## Explore results
@@ -135,19 +148,19 @@ fit <- eBayes(fit)
 Count number of differentially expressed features.
 
 ```{r number-of-de-genes}
-summary(___(fit))
+summary(decideTests(fit))
 ```
 
 View top 10 differentially expressed genes.
 
 ```{r}
-___(fit, coef = ___)
+topTable(fit, coef = 2)
 ```
 
 Create a barplot of the top DE feature:
 
 ```{r}
-___(log2cpm["___", ], las = 2, cex.names = 0.75)
+barplot(log2cpm["YGR234W", ], las = 2, cex.names = 0.75)
 ```
 
 <!-- Ex 2: assessment -->
@@ -155,13 +168,13 @@ ___(log2cpm["___", ], las = 2, cex.names = 0.75)
 Visualize p-value distribution.
 
 ```{r p-values}
-___(fit$p.value[, 2], main = "p-value distribution")
+hist(fit$p.value[, 2], main = "p-value distribution")
 ```
 
 Visualize residual variation versus magnitude of expression.
 
 ```{r residuals}
-___(fit)
+plotSA(fit)
 ```
 
 <!-- Ex 3: volcano -->
@@ -169,5 +182,5 @@ ___(fit)
 Create a volcano plot.
 
 ```{r volcano}
-___(fit, coef = ___, highlight = 5, names = fit$genes$Geneid)
+volcanoplot(fit, coef = 2, highlight = 5, names = fit$genes$Geneid)
 ```
